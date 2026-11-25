@@ -1,7 +1,10 @@
 """Entry for make.fun bounty: The Meeting That Should Have Been One Line.
 
 Writes a single original one-liner to /output/entry.txt. The line is the
-whole meeting, compressed: after it, nobody can justify holding the meeting.
+whole meeting, compressed: the decision was already made in the email
+thread, so after this sentence nobody can justify holding the meeting.
+The program guards the house gate (UTF-8, 1-200 chars, one line, not
+only whitespace) and verifies the file by reading it back.
 """
 
 import os
@@ -17,6 +20,9 @@ def main() -> None:
     assert 1 <= len(ENTRY) <= 200, f"entry length {len(ENTRY)} out of gate"
     assert "\n" not in ENTRY and "\r" not in ENTRY, "entry must be one line"
     assert ENTRY.strip(), "entry must not be only whitespace"
+    assert ENTRY.count(".") == 1 and ENTRY.endswith("."), (
+        "entry must be exactly one sentence"
+    )
 
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:

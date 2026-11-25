@@ -7,9 +7,8 @@ whole meeting, compressed: after it, nobody can justify holding the meeting.
 import os
 
 ENTRY = (
-    "The decision was made in the email thread, the update fits in one "
-    "sentence, and this meeting exists only because nobody wanted to be "
-    "the one to cancel it."
+    "The decision was already made in the email thread, so this meeting is "
+    "just thirty people watching one person read it out loud."
 )
 
 
